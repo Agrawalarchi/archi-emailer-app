@@ -1,3 +1,4 @@
+const path = require('path');
 require('dotenv').config();
 
 const nodemailer = require('nodemailer');
@@ -32,7 +33,7 @@ const mailerFunction = async (to, sub, msg)=>{
         html:msg,
         attachments: [{
             filename: 'Archi_Agrawal_Cv.pdf',
-            path:"./Archi_Agrawal_Cv.pdf"
+            path:path.join(__dirname, '../Assets/Archi_Agrawal_Cv.pdf')
         }]
       });
   }

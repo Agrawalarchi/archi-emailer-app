@@ -1,12 +1,12 @@
 const techEmailTemplate = () => {
   return `
- <p>Hello Team,</p>
+ <p>Hello,</p>
 
   <p>
   I’m <strong>Archi Agrawal</strong>, a B.Tech Computer Science student (9.2 CGPA) with hands-on experience in 
   <strong>Java, DSA, and Full Stack Web Development</strong>.
   </p>
-
+  
   <p>
   I’m reaching out to explore <strong>Intern / Entry-level Software Engineer opportunities</strong> at your organization.
   I enjoy building practical products and solving real-world problems through code.

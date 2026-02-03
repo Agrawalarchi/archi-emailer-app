@@ -38,7 +38,7 @@ const mailerFunction = async (to, sub, msg)=>{
       });
   }
   catch(err){
-     console.log(err);
+    console.error("Error sending email:", err);
   }
 }
 

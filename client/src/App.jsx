@@ -16,7 +16,13 @@ export default function App(){
              body: JSON.stringify({ emails: emailId, secretKey:secretkey})
        });
        const pr = await unp.json();
-       console.log(pr);
+       if(pr.status === false){
+         alert(pr.message);
+       }
+       else{
+         alert("Emails sent successfully");
+         setEMailId([]);
+       }
     }
     catch(err){
       console.error(err);

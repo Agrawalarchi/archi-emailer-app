@@ -39,6 +39,7 @@ export default function App(){
   return(
     <main>
           <input value={secretkey} placeholder="Secret Key" onChange={(e) => setSecretKey(e.target.value)} />
+          {
           (loading)?<Loader />:
           (<><form>
                <label>Mail Sender</label><br/><br/>
@@ -53,6 +54,7 @@ export default function App(){
              {emailId.map((email, index) => <li key={index}>{email}</li>)}
           </ul>
           <button onClick={trgrSendMail}>Send Email</button></>)
+       }
     </main>
   )
 }

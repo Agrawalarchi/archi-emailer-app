@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Loader from "./loader";
 const apiUrl = import.meta.env.VITE_API_URL;
+import "./App.css";
 
 
 

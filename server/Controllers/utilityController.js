@@ -14,7 +14,7 @@ const sendingEmail = async (req, res)=>{
     }
     for(let i=0; i<emails.length; i++){
         try{
-         await mailerFunction(emails[i], "Regarding Internship Opportunity", techEmailTemplate());
+         await mailerFunction(emails[i], "Regarding Internship/Full-Time Opportunity", techEmailTemplate());
          response.push(`Email sent for ${emails[i]}`);
         }
         catch(err){

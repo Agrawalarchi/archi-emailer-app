@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Loader from "./loader";
 const apiUrl = import.meta.env.VITE_API_URL;
 import "./App.css";
 
-//testing changes
 
 export default function App(){
   const [val, setValid]  = useState("");
   const [loading, setLoading] = useState(false);
   const [emailId, setEMailId] = useState([]);
   const [secretkey, setSecretKey] = useState("");
+  const [entries, setEnteries] = useState([]);
 
 
   async function trgrSubmitEnteries() {
@@ -81,6 +81,20 @@ export default function App(){
     setValid("");
   }
 
+
+  async function fetchData(){
+    try{
+      const unp = await fetch(`${apiUrl}/`, { method: "GET",headers: { "Content-Type": "application/json" }});
+      const pr = await unp.json();
+      setEnteries(pr.body);
+    }
+    catch(err){
+      console.error(err);
+    }   
+  }
+  useEffect(() =>{
+    fetchData();
+  },[]);
   
   return(
     <main>
@@ -102,6 +116,16 @@ export default function App(){
           )
        }
        <button onClick={trgrSendMail}>Send Mails</button>
+       <h1 className="database-heading">Database : </h1>
+       <ol className="database-list">
+          {
+             (entries.length > 0) ? (
+               entries.map((email, index) => <li key={index}>{email.email}</li>)
+             ) : (
+               <li>No emails found</li>
+             )
+           }
+       </ol>
     </main>
   )
 }

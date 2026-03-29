@@ -46,5 +46,16 @@ const fillEntries = (req, res)=>{
     });
 }
 
+const getEnteries = async (req, res)=>{
+    try{
+        const existingEmails = await emailModel.find({});       
+        res.json({status:true, body: existingEmails});
+    }
+    catch(err){
+        console.error("Error fetching entries from database:", err);
+        res.status(500).json({status:false, body: "Failed to fetch entries from database"});
+    }   
+}
 
-module.exports = {sendingEmail, fillEntries};
+
+module.exports = {sendingEmail, fillEntries, getEnteries};

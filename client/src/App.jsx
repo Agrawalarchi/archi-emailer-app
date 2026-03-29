@@ -11,15 +11,42 @@ export default function App(){
   const [emailId, setEMailId] = useState([]);
   const [secretkey, setSecretKey] = useState("");
 
+
+  async function trgrSubmitEnteries() {
+    try{
+       setLoading(true);  
+        const unp = await fetch(`${apiUrl}/enteries`,{
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ emails: emailId, secretKey:secretkey}) 
+        });
+        const pr = await unp.json();  
+        if(pr.status === false){
+           alert("Error: " + pr.message);
+        } 
+        else{
+          alert("Enteries submitted successfully");
+          setEMailId([]);
+        } 
+    }
+    catch(err){
+      console.error(err);
+    } 
+    finally{
+      setLoading(false);
+    } 
+  }
+
   async function trgrSendMail() {
     try{
        setLoading(true);
-       const unp = await fetch(apiUrl,{
+       const unp = await fetch( `${apiUrl}/send`,{
              method: "POST",
              headers: { "Content-Type": "application/json" },
-             body: JSON.stringify({ emails: emailId, secretKey:secretkey})
+             body: JSON.stringify({secretKey:secretkey})
        });
        const pr = await unp.json();
+       console.log(pr);
        if(pr.status === false){
           alert("Error: " + pr.message);
        }
@@ -37,25 +64,44 @@ export default function App(){
     } 
   }
 
+  function trgrAddEmail(e){
+    e.preventDefault();
+
+    if(!val || !val.includes("@")){
+      alert("Enter valid email");
+      return;
+    }
+
+    if(emailId.includes(val)){
+      alert("Duplicate email");
+      return;
+    }
+
+    setEMailId([...emailId, val.trim()]);
+    setValid("");
+  }
+
+  
   return(
     <main>
           <input value={secretkey} placeholder="Secret Key" onChange={(e) => setSecretKey(e.target.value)} />
           {
           (loading)?<Loader />:
-          (<><form>
+          (<>
+             <form>
                <label>Mail Sender</label><br/><br/>
                <input name="email" value={val} placeholder="xyz@gmail.com" onChange={(e) => setValid(e.target.value)} /><br/><br/>
-               <button type="submit" onClick={(e) => {
-                  e.preventDefault();
-                  setEMailId([...emailId, val]);
-                  setValid("");
-               }}>Add</button>
-          </form><br/><br/>
+               <button type="submit" onClick={trgrAddEmail}>Add</button>
+             </form>
+             <br/><br/>
           <ul>
              {emailId.map((email, index) => <li key={index}>{email}</li>)}
           </ul>
-          <button onClick={trgrSendMail}>Send Email</button></>)
+          <button onClick={trgrSubmitEnteries}>Submit enteries</button>
+          </>
+          )
        }
+       <button onClick={trgrSendMail}>Send Mails</button>
     </main>
   )
 }

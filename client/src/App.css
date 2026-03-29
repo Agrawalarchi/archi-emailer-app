@@ -139,9 +139,17 @@ li {
 }
 
 /* Send email button */
-button:last-of-type {
+button {
   margin-top: 20px;
   max-width: 400px;
+  text-wrap: nowrap;
+  padding:10px 50px 10px 50px;
+}
+
+.button-list {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 /* Responsive */

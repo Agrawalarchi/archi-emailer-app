@@ -111,11 +111,13 @@ export default function App(){
           <ul>
              {emailId.map((email, index) => <li key={index}>{email}</li>)}
           </ul>
-          <button onClick={trgrSubmitEnteries}>Submit enteries</button>
           </>
           )
        }
-       <button onClick={trgrSendMail}>Send Mails</button>
+       <div className="button-list">
+         <button onClick={trgrSubmitEnteries}>Submit enteries</button>
+         <button onClick={trgrSendMail}>Send Mails</button>
+       </div>
        <h1 className="database-heading">Database : </h1>
        <ol className="database-list">
           {

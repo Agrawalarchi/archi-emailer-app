@@ -24,21 +24,23 @@ transporter.verify((err, success) => {
 
 
 
-const mailerFunction = async (to, sub, msg)=>{
-  try{
-      await transporter.sendMail({
-        from: `archiagrawal387@gmail.com`, 
-        to:to,
-        subject:sub,
-        html:msg,
-        attachments: [{
-            filename: 'Archi_Agrawal_Cv.pdf',
-            path:path.join(__dirname, '../Assets/Archi_Agrawal_Cv.pdf')
-        }]
-      });
+const mailerFunction = async (to, sub, msg) => {
+  try {
+    const info = await transporter.sendMail({
+      from: `archiagrawal387@gmail.com`,
+      to: to,
+      subject: sub,
+      html: msg,
+      attachments: [{
+        filename: 'Archi_Agrawal_Cv.pdf',
+        path: path.join(__dirname, '../Assets/Archi_Agrawal_Cv.pdf')
+      }]
+    });
+    return info;
   }
-  catch(err){
-    console.error("Error sending email:", err);
+  catch (err) {
+    console.error("Error sending email to:", to, err);
+    throw err; // Rethrow to allow caller to handle failure
   }
 }
 

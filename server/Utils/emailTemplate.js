@@ -26,11 +26,6 @@ const techEmailTemplate = () => {
   
   <p>Sharing my profiles below for your reference:</p>
   <ul>
-    <li><strong>Resume:</strong> 
-      <a href="https://drive.google.com/file/d/1PFnopjC18dewpAwRSXNK2O_kPCW4heIa/view?usp=drive_link">
-        View Here
-      </a>
-    </li>
     <li><strong>GitHub:</strong> 
       <a href="https://github.com/Agrawalarchi">Visit Here</a>
     </li>

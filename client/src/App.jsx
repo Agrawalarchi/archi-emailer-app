@@ -118,7 +118,7 @@ export default function App(){
          <button onClick={trgrSubmitEnteries}>Submit enteries</button>
          <button onClick={trgrSendMail}>Send Mails</button>
        </div>
-       <h1 className="database-heading">Database : </h1>
+       <h1 className="database-heading">Database : {entries.length}</h1>
        <ol className="database-list">
           {
              (entries.length > 0) ? (

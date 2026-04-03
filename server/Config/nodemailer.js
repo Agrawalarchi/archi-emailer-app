@@ -33,7 +33,7 @@ const mailerFunction = async (to, sub, msg) => {
       html: msg,
       attachments: [{
         filename: 'Archi_Agrawal_Cv.pdf',
-        path: path.join(__dirname, '../Assets/Archi_Agrawal_Cv.pdf')
+        path: path.join(__dirname, '../Assets/Archi_Agrawal_Cv_1.pdf')
       }]
     });
     return info;

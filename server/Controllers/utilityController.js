@@ -21,9 +21,9 @@ const sendingEmail = async (req, res) => {
     res.json({ status: true, message: `Email job started for ${existingEmails.length} emails. Check server logs.` });
 
     const response = [];
-    const BATCH_SIZE = 5;          // ✅ Smaller batches
-    const DELAY_BETWEEN_EMAILS = 3000;   // ✅ 3s between each individual email
-    const DELAY_BETWEEN_BATCHES = 60000; // ✅ 1 min between batches
+    const BATCH_SIZE = 5;       
+    const DELAY_BETWEEN_EMAILS = 3000;   
+    const DELAY_BETWEEN_BATCHES = 60000; 
 
     console.log(`Sending ${existingEmails.length} emails...`);
 

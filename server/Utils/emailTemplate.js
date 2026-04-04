@@ -3,21 +3,21 @@ const techEmailTemplate = () => {
  <p>Hello,</p>
 
   <p>
-  I’m <strong>Archi Agrawal</strong>, a B.Tech Computer Science student (9.2 CGPA) with hands-on experience in 
+  I'm <strong>Archi Agrawal</strong>, a B.Tech Computer Science student at JECRC University, Jaipur (9.2 CGPA) with hands-on experience in 
   <strong>Java, DSA, and Full Stack Web Development</strong>.
   </p>
   
   <p>
-  I’m reaching out to explore <strong>Intern / Entry-level Software Engineer opportunities</strong> at your organization.
+  I'm reaching out to explore <strong>Intern / Entry-level Software Engineer opportunities</strong> at your organization.
   I enjoy building practical products and solving real-world problems through code.
   </p>
 
   <p><strong>Key Projects:</strong></p>
   <ul>
-    <li>React Portfolio + Project Showcase</li>
-    <li>Full Stack Notes App (React + Node + MongoDB)</li>
-    <li>API-based Weather & Currency Apps</li>
-    <li>Interactive Logic-based Games</li>
+    <li><strong>Archi-Personal-Portfolio</strong> – Responsive portfolio website built with React.js</li>
+    <li><strong>Archi-Travel</strong> – Full-stack travel platform with dynamic gallery and package filtering (React.js | Node.js | Express.js | MongoDB)</li>
+    <li><strong>Archi-Finance-App</strong> – Personal finance management app for tracking income and expenses (React.js | Node.js | Express.js | MongoDB)</li>
+    <li><strong>Weather Widget App</strong> – Live weather report app with responsive UI built using React.js</li>
   </ul>
 
  <p>
@@ -37,7 +37,7 @@ const techEmailTemplate = () => {
     </li>
   </ul>
 
-  <p>If there’s any suitable opening or upcoming opportunity, I’d really appreciate the chance to connect and discuss further.</p>
+  <p>If there's any suitable opening or upcoming opportunity, I'd really appreciate the chance to connect and discuss further.</p>
 
   <p>Thank you for your time and consideration.</p>
 
@@ -50,7 +50,4 @@ const techEmailTemplate = () => {
   `;
 };
 
-
-
-
-module.exports = {techEmailTemplate};
+module.exports = { techEmailTemplate };
